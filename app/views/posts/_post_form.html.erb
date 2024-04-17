@@ -1,0 +1,21 @@
+ <%= form_with(model: @post) do |form|%>
+        <ul>
+            <li>
+                <%= form.label(:title, "Title")%>
+                <%= form.text_field(:title)%>
+                 <% @post.errors.full_messages_for(:title).each do |message| %>
+                     <div><%= message %></div>
+                <% end %>
+            </li>
+             <li>
+                <%= form.label(:body, "Post")%>
+                <%= form.text_field(:body)%>
+                 <% @post.errors.full_messages_for(:body).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </li>
+             <li>
+                <%= form.submit("Update")%>
+            </li>
+        </ul>
+    <% end %>
